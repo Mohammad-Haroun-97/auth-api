@@ -1,14 +1,21 @@
-'use strict';
+"use strict";
 
-const clothesModel = require('./clothes/model.js');
-const foodModel = require('./food/model.js');
-const Collection = require('./data-collection.js');
-const userModel = require('./users');
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require("sequelize");
+const clothesModel = require("./clothes/model.js");
+const foodModel = require("./food/model.js");
+const Collection = require("./data-collection.js");
 
-const DATABASE_URL = 'postgres://localhost:5432/authh';
+const DATABASE_URL = process.env.DATABASE_URL || "sqlite:memory:";
 
-let sequelize = new Sequelize(DATABASE_URL);
+const sequelize = new Sequelize(DATABASE_URL, {
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 const food = foodModel(sequelize, DataTypes);
 const clothes = clothesModel(sequelize, DataTypes);
 
@@ -16,5 +23,4 @@ module.exports = {
   db: sequelize,
   food: new Collection(food),
   clothes: new Collection(clothes),
-  users: userModel(sequelize, DataTypes),
 };
