@@ -1,23 +1,23 @@
 {
-    "development": {
-      "username": "mohammadharoun",
-      "password": "root",
-      "database": "Lab08",
-      "host": "127.0.0.1",
-      "dialect": "postgres"
-    },
-    "test": {
-      "username": "username",
-      "password": "password",
-      "database": "Lab08",
-      "host": "127.0.0.1",
-      "dialect": "sqlite:memory:"
-    },
-    "production": {
-      "username": "mohammadharoun",
-      "password": "root",
-      "database": "Lab08",
-      "host": "127.0.0.1",
-      "dialect": "postgres"
-    }
+  "development": {
+    "username": "username",
+    "password": "root",
+    "database": "people",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "username",
+    "password": "password",
+    "database": "people",
+    "host": "127.0.0.1",
+    "dialect": "sqlite:memory:"
+  },
+  "production": {
+    "username": "username",
+    "password": "password",
+    "database": "people",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
+}
